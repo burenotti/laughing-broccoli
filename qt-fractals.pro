@@ -10,12 +10,12 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    property.cpp \
-    rangebasedproperty.cpp
+    ./properties/property.cpp \
+    ./properties/rangebasedproperty.cpp
 
 HEADERS += \
-    property.h \
-    rangebasedproperty.h
+    ./properties/property.h \
+    ./properties/rangebasedproperty.h
 
 FORMS +=
 

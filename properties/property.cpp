@@ -1,4 +1,4 @@
-#include "property.h"
+#include "./properties/property.h"
 
 Property::Property(QObject *parent) : QObject(parent) {}
 

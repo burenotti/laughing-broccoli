@@ -2,7 +2,7 @@
 #define RANGEBASEDPROPERTY_H
 
 #include <QObject>
-#include <property.h>
+#include "./properties/property.h"
 
 class RangeBasedProperty : public Property
 {

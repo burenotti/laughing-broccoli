@@ -1,4 +1,4 @@
-#include "rangebasedproperty.h"
+#include "./properties/rangebasedproperty.h"
 
 RangeBasedProperty::RangeBasedProperty(QVariant min, QVariant max, QVariant value, QString name, QObject* parent)
   : Property(name, value, parent)

@@ -11,11 +11,13 @@ CONFIG += c++17
 SOURCES += \
     main.cpp \
     ./properties/property.cpp \
-    ./properties/rangebasedproperty.cpp
+    ./properties/rangebasedproperty.cpp \
+    ./fractal-model/fractal.cpp
 
 HEADERS += \
     ./properties/property.h \
-    ./properties/rangebasedproperty.h
+    ./properties/rangebasedproperty.h \
+    ./fractal-model/fractal.h
 
 FORMS +=
 

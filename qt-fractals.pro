@@ -12,12 +12,12 @@ SOURCES += \
     main.cpp \
     ./properties/property.cpp \
     ./properties/rangebasedproperty.cpp \
-    ./fractal-model/fractal.cpp
+    ./fractal-model/fractalmodel.cpp
 
 HEADERS += \
     ./properties/property.h \
     ./properties/rangebasedproperty.h \
-    ./fractal-model/fractal.h
+    ./fractal-model/fractalmodel.h \
 
 FORMS +=
 

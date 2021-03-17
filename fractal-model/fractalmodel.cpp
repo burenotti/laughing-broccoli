@@ -1,6 +1,20 @@
 #include "./fractal-model/fractal.h"
 
-Property* FractalModel::itemAt(int index)
+
+FractalModel::FractalModel(const FractalModel& source) :
+  QObject(source.parent())
+{
+  for (Property* prop: source.m_propertyList)
+    m_propertyList.append(new Property(*prop));
+}
+
+FractalModel::~FractalModel()
+{
+  for (int i = 0; i < m_propertyList.size(); ++i)
+    delete m_propertyList[i];
+}
+
+Property* FractalModel::at(int index)
 {
   if (hasIndex(index))
 
@@ -19,11 +33,13 @@ bool FractalModel::hasIndex(int index)
 void FractalModel::insertAt(int index, Property* prop)
 {
   m_propertyList.insert(index, prop);
+  emit itemAdded(index, prop);
 }
 
 void FractalModel::append(Property* prop)
 {
   m_propertyList.append(prop);
+  emit itemAdded(size(), prop);
 }
 
 int FractalModel::size()
@@ -33,11 +49,15 @@ int FractalModel::size()
 
 void FractalModel::remove(int index)
 {
+  emit beforeItemRemoved(index);
+  auto temp = at(index);
   m_propertyList.removeAt(index);
+  emit afterItemRemoved(temp);
 }
 
 void FractalModel::clear()
 {
+  emit beforeContentCleared();
   m_propertyList.clear();
+  emit contentCleared();
 }
-

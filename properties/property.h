@@ -12,6 +12,7 @@ public:
   explicit Property(QObject *parent = nullptr);
   Property(QString name, QObject* parent = nullptr);
   Property(QString name, QVariant value, QObject* parent = nullptr);
+  Property(const Property& source);
 
   Q_PROPERTY(QVariant value READ value WRITE setValue NOTIFY valueChanged)
   Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)

@@ -10,6 +10,8 @@ CONFIG += c++17
 
 SOURCES += \
     fractal-model/fractalcontrollerfabric.cpp \
+#    fractal-model/labeledslider.cpp \
+    fractal-model/labeledwidget.cpp \
     main.cpp \
     ./properties/property.cpp \
     ./properties/rangebasedproperty.cpp \
@@ -19,7 +21,9 @@ HEADERS += \
     ./properties/property.h \
     ./properties/rangebasedproperty.h \
     ./fractal-model/fractalmodel.h \
-    fractal-model/fractalcontrollerfabric.h
+    fractal-model/fractalcontrollerfabric.h \
+#    fractal-model/labeledslider.h \
+    fractal-model/labeledwidget.h
 
 FORMS +=
 

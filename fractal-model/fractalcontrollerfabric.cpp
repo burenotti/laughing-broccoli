@@ -1,6 +1,6 @@
 #include "fractalcontrollerfabric.h"
 
-fractalcontrollerfabric::fractalcontrollerfabric(QObject *parent) : QObject(parent)
+FractalControllerFabric::FractalControllerFabric(QObject *parent) : QObject(parent)
 {
 
 }

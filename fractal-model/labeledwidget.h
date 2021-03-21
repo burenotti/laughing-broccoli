@@ -4,8 +4,10 @@
 #include <QWidget>
 #include <QLabel>
 #include <QString>
+#include <QVariant>
+#include "abstractpropertycontroller.h"
 
-class LabeledWidget : public QWidget
+class LabeledWidget : public AbstractPropertyController
 {
   Q_OBJECT
 public:
@@ -16,19 +18,23 @@ public:
   virtual void setupUi();
 
   virtual QString name();
-  virtual QWidget* widget() = 0;
-
 
 public slots:
   virtual void setName(QString name);
   virtual void setValue(QVariant) = 0;
 signals:
+
   void nameChanged(QString name);
-  void valueChanged(QVariant value);
+
+protected:
+
+  virtual QWidget* widget() = 0;
+
 protected:
   QString m_name;
   QLabel* m_label;
-  QWidget* m_root;
+private:
+  QVBoxLayout* m_layout;
 };
 
 #endif // LABLEDWIDGET_H

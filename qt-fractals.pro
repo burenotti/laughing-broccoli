@@ -9,21 +9,25 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    abstractpropertycontroller.cpp \
     fractal-model/fractalcontrollerfabric.cpp \
-#    fractal-model/labeledslider.cpp \
+    fractal-model/labeledslider.cpp \
     fractal-model/labeledwidget.cpp \
     main.cpp \
     ./properties/property.cpp \
     ./properties/rangebasedproperty.cpp \
-    ./fractal-model/fractalmodel.cpp
+    ./fractal-model/fractalmodel.cpp \
+    sliderpropertycontroller.cpp
 
 HEADERS += \
     ./properties/property.h \
     ./properties/rangebasedproperty.h \
     ./fractal-model/fractalmodel.h \
+    abstractpropertycontroller.h \
     fractal-model/fractalcontrollerfabric.h \
-#    fractal-model/labeledslider.h \
-    fractal-model/labeledwidget.h
+    fractal-model/labeledslider.h \
+    fractal-model/labeledwidget.h \
+    sliderpropertycontroller.h
 
 FORMS +=
 

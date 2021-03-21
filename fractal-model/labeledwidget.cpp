@@ -3,31 +3,29 @@
 LabeledWidget::LabeledWidget(QWidget *parent)
   : LabeledWidget("", parent)
 {
-
+  LabeledWidget::setupUi();
 }
 
 LabeledWidget::LabeledWidget(QString name, QWidget* parent)
-  : QWidget(parent)
+  : AbstractPropertyController(parent)
 {
   LabeledWidget::setName(name);
-  auto* layout = new QVBoxLayout();
-  layout->addWidget(m_label);
-
 }
 
 LabeledWidget::~LabeledWidget()
 {
-  delete m_root;
+  delete m_label;
 }
 
 void LabeledWidget::setupUi()
 {
-  m_root = new QWidget(this);
-  auto* layout = new QVBoxLayout;
-  m_label = new QLabel(m_root);
-  layout->addWidget(m_label);
-  layout->addWidget(widget());
-  m_root->setLayout(layout);
+  m_layout = new QVBoxLayout;
+  m_label = new QLabel(this);
+  m_layout->addWidget(m_label);
+  m_layout->addWidget(widget());
+  this->setLayout(m_layout);
+  this->show();
+  m_label->setText(name());
   connect(this, &LabeledWidget::nameChanged, m_label, &QLabel::setText);
 }
 

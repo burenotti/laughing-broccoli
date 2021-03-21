@@ -1,4 +1,4 @@
-#include "./fractal-model/fractal.h"
+#include "./fractal-model/fractalmodel.h"
 
 
 FractalModel::FractalModel(const FractalModel& source) :

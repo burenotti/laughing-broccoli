@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "fractal-model/labeledslider.h"
+#include "controllers/labeledslider.h"
 #include <QMainWindow>
 #include <QPushButton>
 

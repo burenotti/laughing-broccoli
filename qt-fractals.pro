@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    ./json-loader/jsonfractalloader.cpp \
     main.cpp \
     ./properties/property.cpp \
     ./properties/rangebasedproperty.cpp \
@@ -23,7 +24,8 @@ HEADERS += \
     ./fractal-model/fractalmodel.h \
     ./controllers/labeledslider.h \
     ./controllers/labeledwidget.h \
-    ./controllers/abstractpropertycontroller.h
+    ./controllers/abstractpropertycontroller.h \
+    ./json-loader/jsonfractalloader.h
 
 FORMS +=
 

@@ -14,6 +14,16 @@ FractalModel::~FractalModel()
     delete m_propertyList[i];
 }
 
+const QString& FractalModel::name()
+{
+  return m_name;
+}
+
+const QString& FractalModel::description()
+{
+  return m_description;
+}
+
 Property* FractalModel::at(int index)
 {
   if (hasIndex(index))
@@ -60,4 +70,14 @@ void FractalModel::clear()
   emit beforeContentCleared();
   m_propertyList.clear();
   emit contentCleared();
+}
+
+void FractalModel::setName(const QString& value)
+{
+  m_name = value;
+}
+
+void FractalModel::setDescription(const QString& value)
+{
+  m_description = value;
 }

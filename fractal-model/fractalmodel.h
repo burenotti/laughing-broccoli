@@ -17,13 +17,16 @@ public:
   FractalModel(const FractalModel& source);
 
   ~FractalModel();
-
+  virtual const QString& name();
+  virtual const QString& description();
   virtual Property* at(int index);
   virtual bool hasIndex(int index);
   virtual int size();
   virtual void remove(int index);
   virtual void clear();
 public slots:
+  virtual void setName(const QString& value);
+  virtual void setDescription(const QString& value);
   virtual void append(Property* prop);
   virtual void insertAt(int index, Property* prop);
 signals:
@@ -35,6 +38,8 @@ signals:
   void beforeItemRemoved(int index);
   void afterItemRemoved(Property* prop);
 private:
+  QString m_name;
+  QString m_description;
   QList<Property*> m_propertyList;
 };
 

@@ -16,7 +16,7 @@ SOURCES += \
     ./fractal-model/fractalmodel.cpp \
     ./controllers/labeledslider.cpp \
     ./controllers/labeledwidget.cpp \
-    ./controllers/abstractpropertycontroller.cpp
+    ./controllers/abstractpropertycontroller.cpp \
 
 HEADERS += \
     ./properties/property.h \
@@ -25,7 +25,7 @@ HEADERS += \
     ./controllers/labeledslider.h \
     ./controllers/labeledwidget.h \
     ./controllers/abstractpropertycontroller.h \
-    ./json-loader/jsonfractalloader.h
+    ./json-loader/jsonfractalloader.h \
 
 FORMS +=
 

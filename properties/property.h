@@ -19,6 +19,7 @@ public:
 
   virtual QString name();
   virtual QVariant value();
+  virtual const QString controllerType() const;;
 
 public slots:
   virtual void setValue(QVariant value);

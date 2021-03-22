@@ -19,6 +19,8 @@ public:
   QVariant maximum();
   QVariant minimum();
 
+  virtual const QString controllerType() const override;
+
 public slots:
   virtual void setMaximum(QVariant value);
   virtual void setMinimum(QVariant value);

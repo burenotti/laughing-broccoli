@@ -48,6 +48,11 @@ QVariant RangeBasedProperty::minimum()
   return m_minimum;
 }
 
+const QString RangeBasedProperty::controllerType() const
+{
+  return "slider";
+}
+
 void RangeBasedProperty::setMaximum(QVariant value)
 {
   if(minimum().value<qreal>() <= value.value<qreal>())

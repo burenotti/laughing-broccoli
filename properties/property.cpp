@@ -30,6 +30,10 @@ QVariant Property::value()
   return m_value;
 }
 
+const QString Property::controllerType() const {
+  return "default";
+}
+
 void Property::setValue(QVariant value)
 {
   m_value = value;

@@ -24,7 +24,7 @@ public:
   JSONFractalLoader();
 
   bool hasCreatorForType(const QString& type){
-    return creators.contains(type);
+    return m_creatorMap.contains(type);
   }
   void addCreatorForType(QString& type, creator_t function);
   bool fromFile(FractalModel* model, const QString& path);
@@ -33,7 +33,7 @@ public:
   Property* createPropertyFromJson(const QJsonObject& json);
   creator_t creator(const QString& type);
 private:
-  QHash<QString, creator_t> creators;
+  QHash<QString, creator_t> m_creatorMap;
 };
 
 #endif // JSONFRACTALLOADER_H

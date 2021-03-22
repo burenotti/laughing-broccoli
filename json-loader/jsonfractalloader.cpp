@@ -6,7 +6,7 @@ JSONFractalLoader::JSONFractalLoader()
 
 void JSONFractalLoader::addCreatorForType(QString& type, JSONFractalLoader::creator_t function)
 {
-  creators[type] = function;
+  m_creatorMap[type] = function;
 }
 
 bool JSONFractalLoader::fromFile(FractalModel* model, const QString& path)
@@ -73,7 +73,7 @@ Property* JSONFractalLoader::createPropertyFromJson(const QJsonObject& json)
 JSONFractalLoader::creator_t JSONFractalLoader::creator(const QString& type)
 {
   if (hasCreatorForType(type))
-    return creators[type];
+    return m_creatorMap[type];
   else
     return nullptr;
 }

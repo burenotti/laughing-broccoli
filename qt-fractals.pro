@@ -17,6 +17,7 @@ SOURCES += \
     ./controllers/labeledslider.cpp \
     ./controllers/labeledwidget.cpp \
     ./controllers/abstractpropertycontroller.cpp \
+    ./controller-creator/PropertyControllerContainer.cpp
 
 HEADERS += \
     ./properties/property.h \
@@ -26,6 +27,7 @@ HEADERS += \
     ./controllers/labeledwidget.h \
     ./controllers/abstractpropertycontroller.h \
     ./json-loader/jsonfractalloader.h \
+    ./controller-creator/PropertyControllerContainer.h
 
 FORMS +=
 

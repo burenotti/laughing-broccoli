@@ -26,7 +26,7 @@ public:
   bool hasCreatorForType(const QString& type){
     return m_creatorMap.contains(type);
   }
-  void addCreatorForType(QString& type, creator_t function);
+  void addCreatorForType(const QString& type, creator_t function);
   bool fromFile(FractalModel* model, const QString& path);
   QJsonObject getJsonContent(const QByteArray& data, bool& ok);
   QByteArray readFile(const QString& path, bool& ok);

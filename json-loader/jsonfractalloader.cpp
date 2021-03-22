@@ -4,7 +4,7 @@ JSONFractalLoader::JSONFractalLoader()
 {
 }
 
-void JSONFractalLoader::addCreatorForType(QString& type, JSONFractalLoader::creator_t function)
+void JSONFractalLoader::addCreatorForType(const QString& type, JSONFractalLoader::creator_t function)
 {
   m_creatorMap[type] = function;
 }

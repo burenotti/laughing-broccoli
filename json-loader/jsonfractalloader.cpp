@@ -4,6 +4,11 @@ JSONFractalLoader::JSONFractalLoader()
 {
 }
 
+void JSONFractalLoader::addCreatorForType(QString& type, JSONFractalLoader::creator_t function)
+{
+  creators[type] = function;
+}
+
 bool JSONFractalLoader::fromFile(FractalModel* model, const QString& path)
 {
   model->clear();

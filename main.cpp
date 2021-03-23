@@ -1,11 +1,12 @@
 #include <QApplication>
-#include "controllers/labeledslider.h"
+#include "mainwindow.h"
 #include <QMainWindow>
 #include <QPushButton>
 
 int main(int argc, char *argv[])
 {
   QApplication a(argc, argv);
-  (new LabeledSlider("Name"))->show();
+  auto* window = new MainWindow;
+  window->show();
   return a.exec();
 }

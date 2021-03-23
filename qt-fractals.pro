@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     ./json-loader/jsonfractalloader.cpp \
+    mainwindow.cpp \
     main.cpp \
     ./properties/property.cpp \
     ./properties/rangebasedproperty.cpp \
@@ -27,9 +28,11 @@ HEADERS += \
     ./controllers/labeledwidget.h \
     ./controllers/abstractpropertycontroller.h \
     ./json-loader/jsonfractalloader.h \
-    ./controller-creator/PropertyControllerContainer.h
+    ./controller-creator/PropertyControllerContainer.h \
+    mainwindow.h
 
-FORMS +=
+FORMS += \
+  mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

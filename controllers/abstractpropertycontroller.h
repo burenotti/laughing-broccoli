@@ -11,8 +11,8 @@ public:
   explicit AbstractPropertyController(QWidget *parent = nullptr);
 
   virtual QVariant value() = 0;
-  virtual void setProperty(Property* prop);
-  virtual const Property* property();
+  virtual void setProperty(Property* prop) = 0;
+  virtual const Property* property() = 0;
 signals:
   void valueChanged(QVariant value);
 protected:

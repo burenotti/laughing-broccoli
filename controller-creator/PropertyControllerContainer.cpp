@@ -3,6 +3,9 @@
 
 PropertyControllerContainer::PropertyControllerContainer(QWidget* parent) : QWidget(parent)
 {
+  m_layout = new QVBoxLayout();
+  m_layout->addStretch();
+  this->setLayout(m_layout);
   connect(m_model, &FractalModel::contentCleared,
           this, &PropertyControllerContainer::deleteControllers);
   connect(m_model, &FractalModel::itemAdded,
@@ -26,7 +29,7 @@ void PropertyControllerContainer::setModel(FractalModel* model)
   {
     Property* prop = model->at(i);
     auto* controller = createController(prop);
-    m_controllerList.append(controller);
+    appendController(controller);
   }
 }
 
@@ -41,7 +44,7 @@ AbstractPropertyController* PropertyControllerContainer::createController(Proper
   auto controllerType = prop->controllerType();
   if (m_creatorMap.contains(controllerType))
   {
-    controller = m_creatorMap[controllerType](prop);
+    controller = m_creatorMap[controllerType](prop, this);
   }
   return controller;
 }
@@ -55,10 +58,18 @@ void PropertyControllerContainer::deleteControllers()
   m_controllerList.clear();
 }
 
+void PropertyControllerContainer::appendController(AbstractPropertyController* controller)
+{
+
+  m_controllerList.append(controller);
+  m_layout->insertWidget(m_layout->count()-1, controller);
+}
+
 void PropertyControllerContainer::insertController(int index, Property* prop)
 {
   auto* controller = createController(prop);
   m_controllerList.insert(index, controller);
+  m_layout->insertWidget(index, controller);
   controller->show();
 }
 

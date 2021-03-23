@@ -1,19 +1,11 @@
  #include "PropertyControllerContainer.h"
 
 
-PropertyControllerContainer::PropertyControllerContainer(QWidget* parent) : QWidget(parent)
+PropertyControllerContainer::PropertyControllerContainer(QWidget* parent) : QGroupBox(parent)
 {
   m_layout = new QVBoxLayout();
   m_layout->addStretch();
   this->setLayout(m_layout);
-  connect(m_model, &FractalModel::contentCleared,
-          this, &PropertyControllerContainer::deleteControllers);
-  connect(m_model, &FractalModel::itemAdded,
-          this, &PropertyControllerContainer::insertController);
-  connect(m_model, &FractalModel::beforeItemRemoved,
-          this, &PropertyControllerContainer::removeController);
-  connect(m_model, &FractalModel::contentCleared,
-          this, &PropertyControllerContainer::deleteControllers);
 }
 
 const FractalModel* PropertyControllerContainer::model()
@@ -23,8 +15,32 @@ const FractalModel* PropertyControllerContainer::model()
 
 void PropertyControllerContainer::setModel(FractalModel* model)
 {
+
   deleteControllers();
+
+  if (m_model)
+  {
+    disconnect(m_model, &FractalModel::contentCleared,
+            this, &PropertyControllerContainer::deleteControllers);
+    disconnect(m_model, &FractalModel::itemAdded,
+            this, &PropertyControllerContainer::insertController);
+    disconnect(m_model, &FractalModel::beforeItemRemoved,
+            this, &PropertyControllerContainer::removeController);
+    disconnect(m_model, &FractalModel::contentCleared,
+            this, &PropertyControllerContainer::deleteControllers);
+  }
+
   m_model = model;
+  this->setTitle(m_model->name());
+
+  connect(m_model, &FractalModel::contentCleared,
+          this, &PropertyControllerContainer::deleteControllers);
+  connect(m_model, &FractalModel::itemAdded,
+          this, &PropertyControllerContainer::insertController);
+  connect(m_model, &FractalModel::beforeItemRemoved,
+          this, &PropertyControllerContainer::removeController);
+  connect(m_model, &FractalModel::contentCleared,
+          this, &PropertyControllerContainer::deleteControllers);
   for (int i = 0; i < model->size(); ++i)
   {
     Property* prop = model->at(i);

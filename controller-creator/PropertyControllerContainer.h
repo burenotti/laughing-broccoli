@@ -2,6 +2,7 @@
 #define PROPERTYCONTROLLERCONTAINER_H
 
 #include <QWidget>
+#include <QGroupBox>
 #include <QHash>
 #include <QVBoxLayout>
 #include "properties/property.h"
@@ -10,7 +11,7 @@
 
 using ControllerCreator = AbstractPropertyController* (*)(Property* property, QWidget* parent);
 
-class PropertyControllerContainer : public QWidget {
+class PropertyControllerContainer : public QGroupBox {
   Q_OBJECT
 public:
 

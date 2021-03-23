@@ -2,6 +2,7 @@
 #define LABELEDSLIDER_H
 
 #include "labeledwidget.h"
+#include "properties/rangebasedproperty.h"
 #include <QVariant>
 #include <QSlider>
 #include <QSpacerItem>
@@ -17,6 +18,8 @@ public:
   int maximum();
   QVariant value() override;
 
+  virtual const Property* property() override;
+
 signals:
   void minimumChanged(int minimum);
   void maximumChanged(int maximum);
@@ -24,10 +27,12 @@ public slots:
   virtual void setValue(QVariant value) override;
   void setMaximum(int value);
   void setMinimum(int value);
+  virtual void setProperty(Property* prop) override;
 protected:
   QSlider* widget() override;
 protected:
   QSlider* m_slider = nullptr;
+  RangeBasedProperty* m_property;
 };
 
 #endif // LABELEDSLIDER_H

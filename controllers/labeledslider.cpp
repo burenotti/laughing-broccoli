@@ -26,6 +26,11 @@ QVariant LabeledSlider::value()
   return QVariant::fromValue<int>(m_slider->value());
 }
 
+const Property* LabeledSlider::property()
+{
+  return m_property;
+}
+
 void LabeledSlider::setMaximum(int value)
 {
   m_slider->setMaximum(value);
@@ -36,6 +41,29 @@ void LabeledSlider::setMinimum(int value)
 {
   m_slider->setMinimum(value);
   emit minimumChanged(m_slider->minimum());
+}
+
+void LabeledSlider::setProperty(Property* prop)
+{
+  auto* range_prop = dynamic_cast<RangeBasedProperty*>(prop);
+  if (range_prop)
+  {
+    disconnect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
+    disconnect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
+    disconnect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
+
+    m_property = range_prop;
+
+    setMinimum(m_property->minimum().toInt());
+    setMaximum(m_property->maximum().toInt());
+    setName(m_property->name());
+    setValue(m_property->value());
+
+    connect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
+    connect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
+    connect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
+
+  }
 }
 
 void LabeledSlider::setValue(QVariant value)

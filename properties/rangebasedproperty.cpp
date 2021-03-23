@@ -55,16 +55,16 @@ const QString RangeBasedProperty::controllerType() const
 
 void RangeBasedProperty::setMaximum(QVariant value)
 {
-  if(minimum().value<qreal>() <= value.value<qreal>())
-    m_maximum = value;
-  else
-    m_maximum = minimum();
+  //if(minimum().value<qreal>() <= value.value<qreal>())
+  m_maximum = value;
+  //else
+  //  m_maximum = minimum();
 }
 
 void RangeBasedProperty::setMinimum(QVariant value)
 {
-  if (maximum().value<qreal>() >= value.value<qreal>())
-    m_minimum = value;
-  else
-    m_minimum = maximum();
+  //if (maximum().value<qreal>() >= value.value<qreal>())
+  m_minimum = value;
+  //else
+  //  m_minimum = maximum();
 }

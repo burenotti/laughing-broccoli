@@ -48,9 +48,12 @@ void LabeledSlider::setProperty(Property* prop)
   auto* range_prop = dynamic_cast<RangeBasedProperty*>(prop);
   if (range_prop)
   {
-    disconnect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
-    disconnect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
-    disconnect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
+    if (m_property)
+    {
+      disconnect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
+      disconnect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
+      disconnect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
+    }
 
     m_property = range_prop;
 

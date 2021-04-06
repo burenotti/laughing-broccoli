@@ -39,7 +39,7 @@ protected slots:
 private:
   QList<AbstractPropertyController*> m_controllerList;
   QHash<QString, ControllerCreator> m_creatorMap;
-  FractalModel* m_model;
+  FractalModel* m_model=nullptr;
   QVBoxLayout* m_layout;
 };
 

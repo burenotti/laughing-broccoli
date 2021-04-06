@@ -36,12 +36,18 @@ const QString Property::controllerType() const {
 
 void Property::setValue(QVariant value)
 {
-  m_value = value;
-  emit valueChanged(value);
+  if (value != m_value)
+  {
+    m_value = value;
+    emit valueChanged(value);
+  }
 }
 
 void Property::setName(QString name)
 {
-  m_name = name;
-  emit nameChanged(name);
+  if (m_name != name)
+  {
+    m_name = name;
+   emit nameChanged(name);
+  }
 }

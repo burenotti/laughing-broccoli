@@ -53,6 +53,7 @@ void LabeledSlider::setProperty(Property* prop)
       disconnect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
       disconnect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
       disconnect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
+      disconnect(m_property, &Property::valueChanged, this, &LabeledSlider::setValue);
     }
 
     m_property = range_prop;
@@ -65,7 +66,7 @@ void LabeledSlider::setProperty(Property* prop)
     connect(this, &LabeledSlider::valueChanged, m_property, &Property::setValue);
     connect(this, &LabeledSlider::minimumChanged, m_property, &RangeBasedProperty::setMinimum);
     connect(this, &LabeledSlider::maximumChanged, m_property, &RangeBasedProperty::setMaximum);
-
+    connect(m_property, &Property::valueChanged, this, &LabeledSlider::setValue);
   }
 }
 

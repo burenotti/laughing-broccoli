@@ -78,6 +78,7 @@ void PropertyControllerContainer::appendController(AbstractPropertyController* c
 {
 
   m_controllerList.append(controller);
+  controller->show();
   m_layout->insertWidget(m_layout->count()-1, controller);
 }
 

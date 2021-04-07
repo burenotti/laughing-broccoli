@@ -15,8 +15,6 @@ public:
   virtual const Property* property() = 0;
 signals:
   void valueChanged(QVariant value);
-protected:
-  Property* m_property;
 };
 
 #endif // ABSTRACTPROPERTYCONTROLLER_H

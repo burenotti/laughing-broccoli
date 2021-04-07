@@ -18,7 +18,9 @@ SOURCES += \
     ./controllers/labeledslider.cpp \
     ./controllers/labeledwidget.cpp \
     ./controllers/abstractpropertycontroller.cpp \
-    ./controller-creator/PropertyControllerContainer.cpp
+    ./controller-creator/PropertyControllerContainer.cpp \
+    controllers/pointwidget/pointwidget.cpp \
+    properties/pointproperty.cpp
 
 HEADERS += \
     ./properties/property.h \
@@ -29,9 +31,12 @@ HEADERS += \
     ./controllers/abstractpropertycontroller.h \
     ./json-loader/jsonfractalloader.h \
     ./controller-creator/PropertyControllerContainer.h \
-    mainwindow.h
+    controllers/pointwidget/pointwidget.h \
+    mainwindow.h \
+    properties/pointproperty.h
 
 FORMS += \
+  controllers/pointwidget/pointwidget.ui \
   mainwindow.ui
 
 # Default rules for deployment.

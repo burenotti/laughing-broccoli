@@ -3,7 +3,6 @@
 LabeledWidget::LabeledWidget(QWidget *parent)
   : LabeledWidget("", parent)
 {
-  LabeledWidget::setupUi();
 }
 
 LabeledWidget::LabeledWidget(QString name, QWidget* parent)

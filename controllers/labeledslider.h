@@ -32,7 +32,7 @@ protected:
   QSlider* widget() override;
 protected:
   QSlider* m_slider = nullptr;
-  RangeBasedProperty* m_property;
+  RangeBasedProperty* m_property = nullptr;
 };
 
 #endif // LABELEDSLIDER_H
